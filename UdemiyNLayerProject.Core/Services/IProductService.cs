@@ -4,11 +4,12 @@ using System.Text;
 using System.Threading.Tasks;
 using UdemiyNLayerProject.Core.Models;
 
-namespace UdemiyNLayerProject.Core.Repostories
+namespace UdemiyNLayerProject.Core.Services
 {
-    interface IProductRepostory:IRepostory<Product>
+    interface IProductService:IService<Product>
     {
-
+        // bool ControlInnerBarcode(Product product);
         Task<Product> GetWithCategoryByIdAsync(int productId);
+
     }
 }
