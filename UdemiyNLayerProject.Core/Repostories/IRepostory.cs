@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UdemiyNLayerProject.Core.Repostories
 {
-    interface IRepostory<TEntity> where TEntity:class
+    public interface IRepostory<TEntity> where TEntity:class
     {
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();

@@ -6,7 +6,7 @@ using UdemiyNLayerProject.Core.Models;
 
 namespace UdemiyNLayerProject.Core.Repostories
 {
-     interface  ICategoryRepostory:IRepostory<Category>
+    public interface ICategoryRepostory:IRepostory<Category>
     {
         Task<Category> GetWithProductsByIdAsync(int CategoryId);
 

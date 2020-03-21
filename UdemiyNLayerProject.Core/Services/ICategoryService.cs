@@ -6,10 +6,9 @@ using UdemiyNLayerProject.Core.Models;
 
 namespace UdemiyNLayerProject.Core.Services
 {
-    public  interface IProductService:IService<Product>
+    public interface ICategoryService:IService<Category>
     {
-        // bool ControlInnerBarcode(Product product);
-        Task<Product> GetWithCategoryByIdAsync(int productId);
 
+        Task<Category> GetWithProductByIdAsync(int categoryId);
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UdemiyNLayerProject.Core.Models
 {
-    class Product
+    public class Product
     {
 
         public int Id { get; set; }

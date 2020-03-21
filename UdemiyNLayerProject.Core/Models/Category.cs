@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UdemiyNLayerProject.Core.Models
 {
-    class Category
+    public class Category
     {
         public Category()
         {
