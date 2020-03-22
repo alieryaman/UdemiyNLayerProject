@@ -6,12 +6,12 @@ using UdemiyNLayerProject.Core.Repostories;
 
 namespace UdemiyNLayerProject.Core.UnitOfWorks
 {
-    interface IUnitOfWork
+   public interface IUnitOfWork
     {
         IProductRepostory Products { get; }
         ICategoryRepostory categories { get; }
         Task CommitAsync();
-        Task Commit();
+        void Commit();
 
     }
 }
