@@ -31,7 +31,12 @@ namespace UdemiyNLayerProject.API
         {
             services.AddDbContext<AppDbContext>(options => 
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"].ToString());
+                options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"].ToString(),o=> {
+
+
+                    o.MigrationsAssembly("UdemiyNLayerProject.Data");
+                
+                });
             
             });
 

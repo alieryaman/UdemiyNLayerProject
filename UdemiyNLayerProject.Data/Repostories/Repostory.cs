@@ -35,9 +35,9 @@ namespace UdemiyNLayerProject.Data.Repostories
             
         }
 
-        IEnumerable<TEntity> IRepostory<TEntity>.Where(Expression<Func<TEntity, bool>> predicate)
+         async Task<IEnumerable<TEntity>> IRepostory<TEntity>.Where(Expression<Func<TEntity, bool>> predicate)
         {
-          return  _dbSet.Where(predicate);
+          return await _dbSet.Where(predicate).ToListAsync();
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
