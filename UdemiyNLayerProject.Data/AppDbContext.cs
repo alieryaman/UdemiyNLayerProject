@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UdemiyNLayerProject.Core.Models;
+using UdemiyNLayerProject.Data.Configurations;
 
 namespace UdemiyNLayerProject.Data
 {
@@ -20,7 +21,8 @@ namespace UdemiyNLayerProject.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new ProductConfigurations());
+            modelBuilder.ApplyConfiguration(new CategoryConfigratons());
         }
 
 
