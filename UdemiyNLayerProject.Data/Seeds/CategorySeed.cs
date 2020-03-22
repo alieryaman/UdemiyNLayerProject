@@ -19,13 +19,14 @@ namespace UdemiyNLayerProject.Data.Seeds
 
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-                 builder.HasData(new Category { Id = _ids[0], Name = "Kalemler" },
-                 builder.HasData(new Category { Id = _ids[0], Name = "Silgiler" },
-                  builder.HasData(new Category { Id = _ids[0], Name = "Defterler" }
+            builder.HasData(
+                new Category { Id = _ids[0], Name = "Kalemler" },
+                new Category { Id = _ids[0], Name = "Silgiler" },
+                new Category { Id = _ids[0], Name = "Defterler" });
 
 
 
-                );
+                
         }
     }
 }

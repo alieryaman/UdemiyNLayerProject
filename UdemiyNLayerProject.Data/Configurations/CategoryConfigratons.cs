@@ -7,7 +7,7 @@ using UdemiyNLayerProject.Core.Models;
 
 namespace UdemiyNLayerProject.Data.Configurations
 {
-    class CategoryConfigratons : IEntityTypeConfiguration<Category>
+   public class CategoryConfigratons : IEntityTypeConfiguration<Category>
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
