@@ -9,11 +9,11 @@ using UdemiyNLayerProject.Core.UnitOfWorks;
 
 namespace UdemiyNLayerProject.Service.Services
 {
-    class Service<TEtity> : IService<TEtity> where TEtity : class
+     public class Service<TEtity> : IService<TEtity> where TEtity : class
     {
 
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IRepostory<TEtity> _repostory;
+        public readonly IUnitOfWork _unitOfWork;
+        public readonly IRepostory<TEtity> _repostory;
 
         public Service(IUnitOfWork unitOfWork, IRepostory<TEtity> repostory)
         {
