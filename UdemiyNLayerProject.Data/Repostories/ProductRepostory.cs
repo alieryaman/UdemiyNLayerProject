@@ -10,7 +10,7 @@ namespace UdemiyNLayerProject.Data.Repostories
 {
    public class ProductRepostory : Repostory<Product>, IProductRepostory
     {
-        private AppDbContext appDbContext   { get => _context as AppDbContext; }
+        private AppDbContext _appDbContext   { get => _context as AppDbContext; }
 
 
         public ProductRepostory(DbContext context):base (context)
@@ -19,7 +19,7 @@ namespace UdemiyNLayerProject.Data.Repostories
         }
         public async Task<Product> GetWithCategoryByIdAsync(int productId)
         {
-            return await appDbContext.Products.Include(x => x.Category).SingleOrDefaultAsync(x => x.Id==productId);
+            return await _appDbContext.Products.Include(x => x.Category).SingleOrDefaultAsync(x => x.Id==productId);
         }
     }
 }
