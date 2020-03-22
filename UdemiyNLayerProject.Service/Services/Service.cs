@@ -3,52 +3,72 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using UdemiyNLayerProject.Core.Repostories;
 using UdemiyNLayerProject.Core.Services;
+using UdemiyNLayerProject.Core.UnitOfWorks;
 
 namespace UdemiyNLayerProject.Service.Services
 {
     class Service<TEtity> : IService<TEtity> where TEtity : class
     {
 
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IRepostory<TEtity> _repostory;
 
-        public Task<TEtity> AddAsync(TEtity entity)
+        public Service(IUnitOfWork unitOfWork, IRepostory<TEtity> repostory)
         {
-            throw new NotImplementedException();
+            _unitOfWork = unitOfWork;
+            _repostory = repostory;
         }
 
-        public Task<IEnumerable<TEtity>> AddRangeAsync(IEnumerable<TEtity> entities)
+        public async Task<TEtity> AddAsync(TEtity entity)
         {
-            throw new NotImplementedException();
+            await _repostory.AddAsync(entity);
+            await _unitOfWork.CommitAsync();
+            return entity;
         }
 
-        public Task<IEnumerable<TEtity>> GetAllAsync()
+        public async Task<IEnumerable<TEtity>> AddRangeAsync(IEnumerable<TEtity> entities)
         {
-            throw new NotImplementedException();
+            await _repostory.AddRangeAsync(entities);
+            await _unitOfWork.CommitAsync();
+            return entities;
         }
 
-        public Task<TEtity> GetByIdAsync(int id)
+        public async Task<IEnumerable<TEtity>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _repostory.GetAllAsync();
+        }
+
+        public async Task<TEtity> GetByIdAsync(int id)
+        {
+            return await _repostory.GetByIdAsync(id);
         }
 
         public void Remove(TEtity entity)
         {
-            throw new NotImplementedException();
+            _repostory.Remove(entity);
+            _unitOfWork.Commit();
         }
 
         public void RemoveRange(IEnumerable<TEtity> entities)
         {
-            throw new NotImplementedException();
+            _repostory.RemoveRange(entities);
+            _unitOfWork.Commit();
         }
 
-        public Task<TEtity> SingleOrDefaultAsync(Expression<Func<TEtity, bool>> predicate)
+        public  async Task<TEtity> SingleOrDefaultAsync(Expression<Func<TEtity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return await _repostory.SingleOrDefaultAsync(predicate);
+
+
         }
 
         public TEtity Update(TEtity entity)
         {
-            throw new NotImplementedException();
+            var UpdateEntity = _repostory.Update(entity);
+            _unitOfWork.Commit();
+            return UpdateEntity;
         }
 
         public Task<IEnumerable<TEtity>> Where(Expression<Func<TEtity, bool>> predicate)
