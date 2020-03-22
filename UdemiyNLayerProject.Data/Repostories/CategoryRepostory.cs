@@ -14,7 +14,7 @@ namespace UdemiyNLayerProject.Data.Repostories
         private AppDbContext _appDbContext { get => _context as AppDbContext; }
 
 
-        public CategoryRepostory(DbContext context) : base(context)
+        public CategoryRepostory(AppDbContext context) : base(context)
         {
 
         }

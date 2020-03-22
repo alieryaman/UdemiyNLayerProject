@@ -18,7 +18,7 @@ namespace UdemiyNLayerProject.Data.Repostories
 
         public readonly DbContext _context;
         public readonly DbSet<TEntity> _dbSet;
-        public Repostory(DbContext context)
+        public Repostory(AppDbContext context)
         {
             _dbSet = context.Set<TEntity>();
         }

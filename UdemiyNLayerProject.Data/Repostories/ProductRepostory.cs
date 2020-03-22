@@ -13,7 +13,7 @@ namespace UdemiyNLayerProject.Data.Repostories
         private AppDbContext _appDbContext   { get => _context as AppDbContext; }
 
 
-        public ProductRepostory(DbContext context):base (context)
+        public ProductRepostory(AppDbContext context):base (context)
         {
 
         }
