@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using UdemiyNLayerProject.Core.Models;
 using UdemiyNLayerProject.Data.Configurations;
+using UdemiyNLayerProject.Data.Seeds;
 
 namespace UdemiyNLayerProject.Data
 {
@@ -23,6 +24,9 @@ namespace UdemiyNLayerProject.Data
         {
             modelBuilder.ApplyConfiguration(new ProductConfigurations());
             modelBuilder.ApplyConfiguration(new CategoryConfigratons());
+            modelBuilder.ApplyConfiguration(new ProductSeed(new int[] { 1,2}));
+            modelBuilder.ApplyConfiguration(new CategorySeed(new int[] { 1,2}));
+
         }
 
 
