@@ -68,7 +68,9 @@ namespace UdemiyNLayerProject.Data.Repostories
 
         public TEntity Update(TEntity entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
+           _context.Entry(entity).State = EntityState.Modified;
+            //_dbSet.Entry(entity).State = EntityState.Modified;
+
             return entity;
         }
 

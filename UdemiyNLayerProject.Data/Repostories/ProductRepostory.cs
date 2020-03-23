@@ -21,5 +21,10 @@ namespace UdemiyNLayerProject.Data.Repostories
         {
             return await _appDbContext.Products.Include(x => x.Category).SingleOrDefaultAsync(x => x.Id==productId);
         }
+    
+    
+    
+    
+    
     }
 }
