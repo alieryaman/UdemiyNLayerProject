@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using UdemiyNLayerProject.API.Filters;
 using UdemiyNLayerProject.Core.Repostories;
 using UdemiyNLayerProject.Core.Services;
 using UdemiyNLayerProject.Core.UnitOfWorks;
@@ -45,6 +46,7 @@ namespace UdemiyNLayerProject.API
             
             });
             services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<NotFoundFilter>();
             services.AddScoped(typeof(IRepostory<>), typeof(Repostory<>));
             services.AddScoped(typeof(IService<>),typeof(Service<>));
             services.AddScoped<ICategoryService, CategoryService>();
@@ -52,7 +54,16 @@ namespace UdemiyNLayerProject.API
             
             services.AddScoped<IUnitOfWork, UnitOfWorks>();
 
-            services.AddControllers();
+           
+            
+            services.AddControllers(o=> {
+
+                o.Filters.Add(new ValidationFilters());
+            
+            
+            });
+
+            
 
             services.Configure<ApiBehaviorOptions>( options => 
             

@@ -42,7 +42,7 @@ namespace UdemiyNLayerProject.API.Controllers
 
 
         [HttpGet("{id}")]
-
+        //[ServiceFilter(typeof(NotFoundFilter))]
         public async Task<IActionResult> GetBdId(int id)
         {
             var product = await _productService.GetByIdAsync(id);
@@ -52,7 +52,7 @@ namespace UdemiyNLayerProject.API.Controllers
 
 
         }
-        [ValidationFilters]
+       
         [HttpPost]
 
         public  async Task<IActionResult> Save(ProductDto productDto)
@@ -75,6 +75,7 @@ namespace UdemiyNLayerProject.API.Controllers
 
         [HttpDelete("{id}")]
 
+        [ServiceFilter(typeof(NotFoundFilter))]
         public IActionResult Deletee(int id)
         {
             var product = _productService.GetByIdAsync(id).Result;
