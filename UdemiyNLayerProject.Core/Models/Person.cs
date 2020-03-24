@@ -6,9 +6,11 @@ namespace UdemiyNLayerProject.Core.Models
 {
  public   class Person
     {
-        public int Id;
-        public string Name;
-        public string SurName;
+      
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string SurName { get; set; }
 
 
     }
