@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UdemiyNLayerProject.API.DTOs;
+using UdemiyNLayerProject.API.Filters;
 using UdemiyNLayerProject.Core.Models;
 using UdemiyNLayerProject.Core.Services;
 
@@ -50,7 +52,7 @@ namespace UdemiyNLayerProject.API.Controllers
 
 
         }
-
+        [ValidationFilters]
         [HttpPost]
 
         public  async Task<IActionResult> Save(ProductDto productDto)
@@ -60,6 +62,9 @@ namespace UdemiyNLayerProject.API.Controllers
         }
 
 
+
+
+        
         [HttpPut]
 
         public  IActionResult Update(ProductDto productDto)
