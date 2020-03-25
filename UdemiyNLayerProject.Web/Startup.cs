@@ -47,7 +47,7 @@ namespace UdemiyNLayerProject.Web
 
             });
             services.AddAutoMapper(typeof(Startup));
-            services.AddScoped<NotFoundFilter>();
+            //services.AddScoped<NotFoundFilter>();
             services.AddScoped(typeof(IRepostory<>), typeof(Repostory<>));
             services.AddScoped(typeof(IService<>), typeof(Service<>));
             services.AddScoped<ICategoryService, CategoryService>();
