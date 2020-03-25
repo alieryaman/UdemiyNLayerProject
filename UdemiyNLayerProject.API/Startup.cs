@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using UdemiyNLayerProject.API.Extension;
 using UdemiyNLayerProject.API.Filters;
 using UdemiyNLayerProject.Core.Repostories;
 using UdemiyNLayerProject.Core.Services;
@@ -85,7 +86,7 @@ namespace UdemiyNLayerProject.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCustomException();
             app.UseHttpsRedirection();
 
             app.UseRouting();
