@@ -85,7 +85,7 @@ namespace UdemiyNLayerProject.Web
             app.UseRouting();
 
             app.UseAuthorization();
-
+            ///UseEndpoints
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
