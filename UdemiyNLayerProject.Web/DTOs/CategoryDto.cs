@@ -11,7 +11,7 @@ namespace UdemiyNLayerProject.Web.DTOs
 
 
         public int Id { get; set; }
-        //[Required(ErrorMessage ="{0} alanı boş olamaz")]
+        [Required]
         public string Name { get; set; }
     }
 }

@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UdemiyNLayerProject.API.DTOs;
+//using UdemiyNLayerProject.API.DTOs;
 using UdemiyNLayerProject.Core.Models;
+using UdemiyNLayerProject.Web.DTOs;
 
 namespace UdemiyNLayerProject.Web.Mapping
 {

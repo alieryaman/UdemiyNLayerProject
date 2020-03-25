@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using UdemiyNLayerProject.Web.DTOs;
+//using UdemiyNLayerProject.API.DTOs;
 using UdemiyNLayerProject.Web.Models;
 
 namespace UdemiyNLayerProject.Web.Controllers
@@ -29,9 +31,9 @@ namespace UdemiyNLayerProject.Web.Controllers
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Error( ErrorDto errorDto)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(errorDto);
         }
     }
 }

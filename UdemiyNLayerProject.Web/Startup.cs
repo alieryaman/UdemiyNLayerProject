@@ -6,10 +6,12 @@ using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+//using UdemiyNLayerProject.API.Filters;
 //using UdemiyNLayerProject.API.Filters;
 using UdemiyNLayerProject.Core.Repostories;
 using UdemiyNLayerProject.Core.Services;
@@ -18,6 +20,7 @@ using UdemiyNLayerProject.Data;
 using UdemiyNLayerProject.Data.Repostories;
 using UdemiyNLayerProject.Data.UnitOfWorks;
 using UdemiyNLayerProject.Service.Services;
+using UdemiyNLayerProject.Web.Filters;
 
 namespace UdemiyNLayerProject.Web
 {
@@ -34,8 +37,6 @@ namespace UdemiyNLayerProject.Web
         public void ConfigureServices(IServiceCollection services)
         {
 
-
-
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"].ToString(), o => {
@@ -47,7 +48,7 @@ namespace UdemiyNLayerProject.Web
 
             });
             services.AddAutoMapper(typeof(Startup));
-            //services.AddScoped<NotFoundFilter>();
+            services.AddScoped<NotFoundFilter>();
             services.AddScoped(typeof(IRepostory<>), typeof(Repostory<>));
             services.AddScoped(typeof(IService<>), typeof(Service<>));
             services.AddScoped<ICategoryService, CategoryService>();
@@ -58,8 +59,21 @@ namespace UdemiyNLayerProject.Web
 
 
 
+            services.AddControllers(o => {
+
+                o.Filters.Add(new ValidationFilters());
 
 
+            });
+
+
+            services.Configure<ApiBehaviorOptions>(options =>
+
+            {
+                options.SuppressModelStateInvalidFilter = true;
+
+
+            });
 
 
 
